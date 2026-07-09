@@ -1,0 +1,76 @@
+
+import { redirect } from "next/navigation"
+
+import PricingCards from "../components/PricingCards"
+
+import prisma from "@/lib/prisma"
+
+import { headers } from "next/headers"
+import { auth } from "@/lib/auth"
+
+const tiers = [
+  {
+    name: "Free",
+    price: "$0",
+    priceId: null,
+    features: ["Basic features", "Limited usage", "Community support"],
+    buttonText: "Get Started",
+  },
+  {
+    name: "Premium",
+    price: "$10/mo",
+    priceId: "premium",
+    features: [
+      "All basic features",
+      "Advanced analytics",
+      "Priority support",
+      "Custom integrations",
+    ],
+    buttonText: "Upgrade to Premium",
+  },
+  {
+    name: "Pro",
+    price: "$20/mo",
+    priceId: "pro",
+    features: [
+      "All premium features",
+      "Unlimited usage",
+      "24/7 support",
+      "White-label options",
+      "API access",
+    ],
+    buttonText: "Go Pro",
+  },
+]
+
+const PricingPage = async () => {
+  const session = await auth.api.getSession({
+    headers: await headers() 
+  })
+
+  if (!session || !session.user.id) {
+    redirect("/sign-in")
+  }
+
+  const user = await prisma.user.findUnique({ where: { id: session.user.id } })
+
+  if (!user) {
+    redirect("/sign-in")
+  }
+
+  const hasActiveSubscription = Boolean(
+    user.subscriptionId && user.isSubscribed !== null && user.priceId !== "free"
+  )
+  return (
+    <div className="min-h-screen by-gray-50 flex flex-col items-center py-12 px-4">
+      <h1 className="text-4xl font-bold mb-8">Our Pricing Plans</h1>
+      <PricingCards
+        tiers={tiers}
+        userPlan={user.priceId || "free"}
+        hasActiveSubscription={hasActiveSubscription}
+      />
+    </div>
+  )
+}
+
+export default PricingPage
