@@ -52,22 +52,26 @@ const PricingPage = async () => {
     redirect("/sign-in")
   }
 
-  const user = await prisma.user.findUnique({ where: { id: session.user.id } })
+  const user = await prisma.user.findUnique({ 
+    where: { 
+      id: session.user.id 
+    } 
+  })
 
   if (!user) {
     redirect("/sign-in")
   }
 
-  const hasActiveSubscription = Boolean(
+  const isSubscribed = Boolean(
     user.subscriptionId && user.isSubscribed !== null && user.priceId !== "free"
   )
   return (
     <div className="min-h-screen by-gray-50 flex flex-col items-center py-12 px-4">
       <h1 className="text-4xl font-bold mb-8">Our Pricing Plans</h1>
       <PricingCards
-        tiers={tiers}
-        userPlan={user.priceId || "free"}
-        hasActiveSubscription={hasActiveSubscription}
+
+
+        isSubscribed={isSubscribed}
       />
     </div>
   )

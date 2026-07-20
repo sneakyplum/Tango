@@ -3,13 +3,14 @@ import { useRouter } from "next/navigation"
 import React from "react"
 
 interface PricingCardsProps {
-  userPlan: string
-  hasActiveSubscription: boolean | null
+
+  isSubscribed: boolean
 }
 
 const PricingCards: React.FC<PricingCardsProps> = ({
-  userPlan,
-  hasActiveSubscription,
+
+  isSubscribed,
+
 }) => {
   const router = useRouter()
   
@@ -17,9 +18,8 @@ const PricingCards: React.FC<PricingCardsProps> = ({
   const LIVE_STRIPE_PRICE_ID = "price_1TmoNj5rLJX5AeyxxCEHMuih" 
 
   const handleSubscribe = async () => {
-    if (hasActiveSubscription) {
+    if (isSubscribed) {
       alert("You already have an active subscription! Visiting dashboard...")
-      router.push("/dashboard")
       return
     }
     
@@ -63,9 +63,10 @@ const PricingCards: React.FC<PricingCardsProps> = ({
 
       <button
         onClick={handleSubscribe}
-        className="w-full px-4 py-3 rounded-lg font-semibold transition-colors bg-indigo-600 text-white hover:bg-indigo-700 cursor-pointer"
+        disabled={isSubscribed}
+        className="w-full px-4 py-3 rounded-lg font-semibold transition-colors bg-indigo-600 text-white hover:bg-indigo-700 cursor-pointer disabled:cursor-not-allowed disabled:bg-indigo-300"
       >
-        {hasActiveSubscription ? "Manage Subscription" : "Upgrade Now"}
+        {isSubscribed ? "Manage Subscription" : "Subscribe Now"}
       </button>
     </div>
   )
