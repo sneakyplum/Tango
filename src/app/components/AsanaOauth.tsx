@@ -9,7 +9,7 @@ const AsanaOauth = () => {
   const asanaOauth = async () => {
     const response = await authClient.signIn.oauth2({
       providerId: "asana",
-      callbackURL: "/sign-in", // the path to redirect to after the user is authenticated
+      callbackURL: "/dashboard", // the path to redirect to after the user is authenticated
     });
 
     console.log("Asana OAuth response:", response);

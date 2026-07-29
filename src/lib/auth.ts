@@ -26,7 +26,7 @@ export const auth = betterAuth({
               authorizationUrl: "https://app.asana.com/-/oauth_authorize",
               tokenUrl: "https://app.asana.com/-/oauth_token",
                     // Add any specific scopes you need (space-separated in Asana docs, an array here)
-              scopes: ["openid", "users:read", "tasks:read", "tasks:write", "projects:read"],
+              scopes: ["openid", "users:read", "tasks:read", "tasks:write", "projects:read", "workspaces:read"],
           
           getUserInfo: async (tokens) => {
             try {
