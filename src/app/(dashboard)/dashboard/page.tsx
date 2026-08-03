@@ -1,4 +1,8 @@
+
+
 import { getAsanaApiData } from "@/app/actions";
+import DateAndTime from "@/app/components/DateAndTime";
+
 
 
 interface AsanaTask {
@@ -40,6 +44,8 @@ export default async function DashboardPage({workspace, gid, due_at, due_on, ass
               {task.assignee_status && <p>Assignee Status: {task.assignee_status}</p>}
               {task.created_at && <p>Created at: {task.created_at}</p>}
               {task.modified_at && <p>Modified at: {task.modified_at}</p>}
+              <DateAndTime asanaDueAtTime={new Date(task.due_at as string).toISOString()} />
+
 
             </div>
           </li>
