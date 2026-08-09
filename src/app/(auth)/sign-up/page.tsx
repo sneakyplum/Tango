@@ -15,7 +15,7 @@ const SignUpPage = () => {
     email: z.string(),
     password: z.string().min(8),
     name: z.string(),
-
+    
   });
 
   type FormData = z.infer<typeof signUpSchema>;
@@ -50,7 +50,16 @@ const SignUpPage = () => {
 
   router.push("/")
 
+  const emailVerification = await authClient.sendVerificationEmail({
+    email: data.email, // user email address
+    callbackURL: "/" // A URL to redirect to after the user verifies their email (optional)
+  })
+
+  console.log("Email verification response:", emailVerification);
+
   }
+
+
 
   return (
     <div>

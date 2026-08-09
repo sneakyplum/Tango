@@ -22,12 +22,15 @@ model User {
   updatedAt     DateTime  @updatedAt
   sessions      Session[]
   accounts      Account[]
+  asanaCustomTicketIds AsanaCustomTicketId[]
         
   isSubscribed     Boolean  @default(false)
   customerId       String?
   subscriptionId   String?
   priceId          String?
   currentPeriodEnd DateTime?
+
+  
 
   @@unique([email])
   @@map("user")
@@ -79,4 +82,18 @@ model Verification {
 
   @@index([identifier])
   @@map("verification")
+}
+
+model AsanaCustomTicketId {
+  id        String  
+  taskId    String
+  customTicketId String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+@@id([id, taskId])
+  @@index([userId])
 }
