@@ -28,9 +28,6 @@ const SignUpPage = () => {
 
   const onSubmit = async (data: FormData) => {
 
-    await auth.api.getSession({
-        headers: await headers() // headers containing the user's session token
-    })
 
   const { error } = await authClient.signUp.email({
     email: data.email, // user email address
