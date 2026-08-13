@@ -1,7 +1,9 @@
 "use client";
 
+import { auth } from '@/lib/auth';
 import { authClient } from '@/lib/auth-client';
 import { zodResolver } from '@hookform/resolvers/zod';
+import { headers } from 'next/headers';
 import { useRouter } from 'next/navigation';
 import { useForm } from 'react-hook-form';
 
@@ -25,6 +27,10 @@ const SignUpPage = () => {
   });
 
   const onSubmit = async (data: FormData) => {
+
+    await auth.api.getSession({
+        headers: await headers() // headers containing the user's session token
+    })
 
   const { error } = await authClient.signUp.email({
     email: data.email, // user email address
