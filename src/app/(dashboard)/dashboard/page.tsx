@@ -1,6 +1,6 @@
 
 
-import { createAsanaCustomTicket, getAsanaApiData } from "@/app/actions";
+import { getAsanaApiData } from "@/app/actions";
 import CustomTicketId from "@/app/components/CustomTicketId";
 import DateAndTime from "@/app/components/DateAndTime";
 import prisma from "@/lib/prisma";
@@ -44,41 +44,50 @@ export default async function DashboardPage({workspace, gid, due_at, due_on, ass
 
 
   return (
-    <main style={{ padding: "2rem" }}>
-      <h1>My Asana Tasks</h1>
-      
-      <ul>
-        {/* Mapping directly on load */}
-        {tasks.map((task) => (
-          <li key={task.gid}>
-            <div className="flex flex-row gap-2 p-4 border rounded shadow-sm hover:shadow-md transition-shadow duration-300 mb-2">
-              <div className="flex flex-row gap-2 w-full">
-                <div className="flex flex-row">
-                  <strong>{task.name}</strong>
-                  {task.due_at && <p>Due at: {new Date(task.due_at).toLocaleString()}</p>}
-                  {task.due_on && <p>Due on: {new Date(task.due_on).toLocaleString()}</p>}
+    <div className="w-full gap-4 p-4">
+      <div className="flex flex-col gap-4 p-8 ">
+        <div>
+          <h1>My Asana Tasks</h1>
+
+        </div>
+        
+        <div >
+          <ul>
+            {/* Mapping directly on load */}
+            {tasks.map((task) => (
+              <li key={task.gid}>
+                <div className="flex gap-2 p-4 border rounded-md mb-4 justify-between items-center" style={{ }}>
+                    <div className="flex flex-col gap-1 pl-4 w-full h-full bg-amber-500">
+                      <strong>Task Name: {task.name}</strong>
+                      {task.due_at && <p>Due at: {new Date(task.due_at).toLocaleString()}</p>}
+                      {task.due_on && <p>Due on: {new Date(task.due_on).toLocaleString()}</p>}
+
+                    </div>
+                    {/* {task.assignee_status && <p>Assignee Status: {task.assignee_status}</p>}
+                    {task.created_at && <p>Created at: {task.created_at}</p>}
+                    {task.modified_at && <p>Modified at: {task.modified_at}</p>} */}
+                    <div className="flex flex-col gap-1 w-full h-full">
+                      <DateAndTime asanaDueAtTime={new Date(task.due_at as string).toISOString()} />
+
+                    </div>
+
+                      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', paddingRight: '20px', padding: '10px'}}>
+                        {/* {task.gid} */}
+                        <CustomTicketId gid={task.gid} workspace={task.workspace} customTicketId={getTicketAmount.find((t) => t.taskId === task.gid)?.customTicketId || ''} />
+
+                      </div>
+
 
                 </div>
-                {/* {task.assignee_status && <p>Assignee Status: {task.assignee_status}</p>}
-                {task.created_at && <p>Created at: {task.created_at}</p>}
-                {task.modified_at && <p>Modified at: {task.modified_at}</p>} */}
-                <div className="flex flex-col gap-1">
-                  <DateAndTime asanaDueAtTime={new Date(task.due_at as string).toISOString()} />
+              </li>
+            ))}
+          </ul>
 
-                </div>
+        </div>
 
-                <div className="flex flex-col gap-1 justify-end items-end">
-                  {task.gid}
-                  <CustomTicketId gid={task.gid} workspace={task.workspace} customTicketId={getTicketAmount.find((t) => t.taskId === task.gid)?.customTicketId || ''} />
+      </div>
 
-                </div>
+    </div>
 
-              </div>
-
-            </div>
-          </li>
-        ))}
-      </ul>
-    </main>
   );
 }
