@@ -14,16 +14,16 @@ export const auth = betterAuth({
     emailAndPassword: {    
         enabled: true
     },
-    emailVerification: {
-      sendVerificationEmail: async ({ user, url }) => {
-        await resend.emails.send({
-          from: 'Acme <onboarding@resend.dev>',
-          to: user.email,
-          subject: 'Verify your email address',
-          html: `Click <a href="${url}">here</a> to verify your email.`,
-        });
-      },
-    },
+    // emailVerification: {
+    //   sendVerificationEmail: async ({ user, url }) => {
+    //     await resend.emails.send({
+    //       from: 'Acme <onboarding@resend.dev>',
+    //       to: user.email,
+    //       subject: 'Verify your email address',
+    //       html: `Click <a href="${url}">here</a> to verify your email.`,
+    //     });
+    //   },
+    // },
     account: {
         accountLinking: {
             enabled: true,
