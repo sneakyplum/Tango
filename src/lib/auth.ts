@@ -38,8 +38,8 @@ export const auth = betterAuth({
           config: [ 
             { 
               providerId: "asana",
-              clientId: process.env.ASANA_CLIENT_ID as string,
-              clientSecret: process.env.ASANA_CLIENT_SECRET as string,
+              clientId: process.env.ASANA_CLIENT_ID!,
+              clientSecret: process.env.ASANA_CLIENT_SECRET!,
               authorizationUrl: "https://app.asana.com/-/oauth_authorize",
               tokenUrl: "https://app.asana.com/-/oauth_token",
                     // Add any specific scopes you need (space-separated in Asana docs, an array here)

@@ -24,7 +24,7 @@ export const createStripeProduct = async () => {
   const userId = session?.user?.id as string;
 
   const stripeSession = await stripeClient.checkout.sessions.create({
-  success_url: 'http://localhost:3000/sign-in',
+  success_url: `${process.env.NEXT_PUBLIC_APP_URL}/dashboard`,
   line_items: [
     {
       price: 'price_1TmoNj5rLJX5AeyxxCEHMuih',
