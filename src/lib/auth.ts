@@ -30,7 +30,8 @@ export const auth = betterAuth({
         }
     },
     trustedOrigins: [
-      "https://tanjey.com",
+      process.env.NEXT_PUBLIC_APP_URL!,
+      process.env.BETTER_AUTH_URL!,
     ],
     plugins: [
         genericOAuth({ 
