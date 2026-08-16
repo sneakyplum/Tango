@@ -223,6 +223,15 @@ export const createAsanaCustomTicket = async ({
     revalidatePath(`/dashboard`);
   }
 
+  if(customTicketResponse) {
+    await prisma.asanaCustomTicketId.update({
+      where: { taskId: gid },
+      data: {
+        customTicketId: customTicketResponse.customTicketId,
+      },
+    })
+  }
+
   console.log("Asana API Response Status:", response);
 
   if (!response.ok) {
