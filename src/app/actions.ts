@@ -214,7 +214,7 @@ export const createAsanaCustomTicket = async ({
     data: {
       userId: userId,
       taskId: gid,
-      id: workspaceGid,
+      workspaceGID: workspaceGid,
       customTicketId: CustomTicketId,
     },
   })
