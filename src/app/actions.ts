@@ -210,27 +210,35 @@ export const createAsanaCustomTicket = async ({
     },
   });
 
-  const customTicketResponse = await prisma.asanaCustomTicketId.create({
-    data: {
+  // const customTicketResponse = await prisma.asanaCustomTicketId.create({
+  //   data: {
+  //     userId: userId,
+  //     taskId: gid,
+  //     workspaceGID: workspaceGid,
+  //     customTicketId: CustomTicketId,
+  //   },
+  // })
+
+  const customTicketResponse = await prisma.asanaCustomTicketId.upsert({
+    where: { 
+      taskId: gid 
+    },
+    update: {
+      customTicketId: CustomTicketId,
+      workspaceGID: workspaceGid,
+    },
+    create: {
       userId: userId,
       taskId: gid,
       workspaceGID: workspaceGid,
       customTicketId: CustomTicketId,
     },
-  })
+  });
 
   if(customTicketResponse) {
     revalidatePath(`/dashboard`);
   }
 
-  if(customTicketResponse.customTicketId) {
-    const updateTicket = await prisma.asanaCustomTicketId.update({
-      where: { taskId: gid },
-      data: {
-        customTicketId: CustomTicketId,
-      },
-    })
-  }
 
   console.log("Asana API Response Status:", response);
 
