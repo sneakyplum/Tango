@@ -85,7 +85,7 @@ model Verification {
 }
 
 model AsanaCustomTicketId {
-  id             String   @id @default(cuid())
+  id             String   @id @default(uuid())
   workspaceGID String
   taskId    String  @unique
   customTicketId String
