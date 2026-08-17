@@ -38,7 +38,7 @@ const DateAndTime = ({ asanaDueAtTime }: DateAndTimeProps) => {
     const overdueHours = Math.floor(overdueMins / 60);
 
     return (
-      <div className="flex flex-col items-start gap-0.5 text-xs font-mono">
+      <div className="flex flex-col items-start gap-0.5 text-xs font-mono ">
         <span className="px-2 py-0.5 rounded bg-red-500/10 text-red-500 font-bold border border-red-500/20 animate-pulse">
           BREACHED
         </span>

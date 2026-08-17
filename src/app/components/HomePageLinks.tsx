@@ -1,36 +1,32 @@
-import React from 'react'
+"use client";
+
 import Link from 'next/link'
+import { useRouter } from 'next/navigation'
 
 const HomePageLinks = () => {
+
+  const router = useRouter();
+
   return (
 
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <div className="text-center sm:text-left">
-          <h1 className="text-3xl font-bold mb-4">Next.js Authentication</h1>
+    <div className='w-full h-full flex'>
+      <header className="flex flex-row w-full justify-end items-end p-5 mr-5">
+        <div className='flex w-1/5 justify-center gap-3'>
 
-          <div className="flex gap-4 items-center flex-col sm:flex-row">
-            <Link
-              className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-blue-600 text-white gap-2 hover:bg-blue-700 font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-              href="/sign-up"
-            >
-              Sign Up
-            </Link>
-            <Link
-              className="rounded-full border border-solid border-gray-300 transition-colors flex items-center justify-center hover:bg-gray-50 font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto"
-              href="/sign-in"
-            >
-              Sign In
-            </Link>
-            <Link
-              className="rounded-full border border-solid border-green-300 transition-colors flex items-center justify-center bg-green-600 text-white gap-2 hover:bg-green-700 font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto"
-              href="/dashboard"
-            >
-              Dashboard
-            </Link>
-          </div>
+          <button onClick={() => router.push("sign-in")} className='bg-blue-600 p-3 text-white rounded-4xl flex w-full justify-center cursor-pointer text-lg'>
+            Sign In
+          </button>
+
+          <button onClick={() => router.push("sign-up")} className='bg-blue-600 p-3 text-white rounded-4xl flex w-full justify-center cursor-pointer text-lg'>
+            Sign Up
+          </button>
+
+          <button onClick={() => router.push("dashboard")} className='bg-blue-800 text-white rounded-2xl flex p-3 justify-center cursor-pointer w-full text-lg'>
+            Dashboard
+          </button>
+
         </div>
-      </main>
+      </header>
     </div>
   )
 }
