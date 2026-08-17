@@ -62,8 +62,8 @@ const SignInPage = () => {
       </div>
       <div className="w-full h-lvh flex bg-blue-50 items-center justify-center flex-col">
         <p className="text-4xl font-bold text-black mb-5">Sign in</p>
-        <div className="w-1/3 h-3/4 flex  justify-center items-center bg-white rounded-2xl border-6 border-gray-100 shadow-lg flex-col">
-        <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col  w-full h-full items-center p-10">
+        <div className="w-2/4 h-full flex  justify-center items-center bg-white rounded-2xl border-6 border-gray-100 shadow-lg flex-col">
+        <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col w-3/4 h-3/4  items-center ">
           <label className="font-inter text-4sm items-start w-full text-black">E-mail</label>
           <input type="email" {...register("email")} className="border-2 border-gray-300 h-12 w-full rounded-sm pl-2 font-inter"/>
           <label className="font-inter text-4sm items-start w-full mt-4 text-black">Password</label>
