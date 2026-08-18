@@ -56,7 +56,7 @@ const SignInPage = () => {
   {/* Top Navigation / Brand Header */}
   <div className="fixed top-0 left-0 w-full h-20 flex items-center justify-start pl-6 sm:pl-10 z-10">
     <Link href="/" className="text-3xl sm:text-4xl font-bold text-blue-700">
-      Notely
+      Tanjey
     </Link>
   </div>
 

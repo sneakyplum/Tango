@@ -72,7 +72,7 @@ const SignUpPage = () => {
   {/* Top Navigation / Brand Header */}
   <div className="fixed top-0 left-0 w-full h-20 flex items-center justify-start pl-6 sm:pl-10 z-10">
     <Link href="/" className="text-3xl sm:text-4xl font-bold text-blue-700">
-      Notely
+      Tanjey
     </Link>
   </div>
 
@@ -135,7 +135,7 @@ const SignUpPage = () => {
 
         <p className="text-sm text-center mt-4 text-gray-600">
           Already have an account{" "}
-          <a href="/sign-up" className="text-blue-700 font-medium hover:underline">
+          <a href="/sign-in" className="text-blue-700 font-medium hover:underline">
             Sign In
           </a>
         </p>
