@@ -68,51 +68,94 @@ const SignUpPage = () => {
 
 
   return (
-    <div className=" bg-blue-50">
-      <div >
-        <div className="w-full h-20 flex items-center justify-start pl-10 position: fixed">
-          <button>
-            <Link href="/" className="text-4xl font-inter font-bold text-blue-700">Notely</Link>
-          </button>
+<div>
+  {/* Top Navigation / Brand Header */}
+  <div className="fixed top-0 left-0 w-full h-20 flex items-center justify-start pl-6 sm:pl-10 z-10">
+    <Link href="/" className="text-3xl sm:text-4xl font-bold text-blue-700">
+      Notely
+    </Link>
+  </div>
+
+  {/* Main Centered Container */}
+  <div className="w-full min-h-screen flex items-center justify-center bg-blue-50 px-4 py-24">
+    <div className="w-full max-w-md bg-white rounded-2xl border-2 border-gray-100 shadow-lg p-6 sm:p-8 flex flex-col items-center">
+      
+      <h1 className="text-3xl font-bold text-black mb-6 text-center">
+        Sign Up
+      </h1>
+
+      <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col w-full">
+
+        <label className="text-sm font-medium text-black mt-4 mb-1">
+          Name
+        </label>
+        <input 
+          type="text" 
+          {...register("name")} 
+          className="border-2 w-3/4 sm:w-full lg:w-full border-gray-300 h-11 rounded-md px-3 text-base sm:text-sm text-black focus:outline-none focus:border-blue-700"
+        />
+
+        {/* Email Label & Input */}
+        <label className="text-sm font-medium text-black mb-1">
+          E-mail
+        </label>
+        <input 
+          type="email" 
+          {...register("email")} 
+          className="border-2 w-3/4 sm:w-full lg:w-full border-gray-300 h-11 rounded-md px-3 text-base sm:text-sm text-black focus:outline-none focus:border-blue-700"
+        />
+
+        {/* Password Label & Input */}
+        <label className="text-sm font-medium text-black mt-4 mb-1">
+          Password
+        </label>
+        <input 
+          type="password" 
+          {...register("password")} 
+          className="border-2 w-3/4 sm:w-full lg:w-full border-gray-300 h-11 rounded-md px-3 text-base sm:text-sm text-black focus:outline-none focus:border-blue-700"
+        />
+
+        <label className="text-sm font-medium text-black mt-4 mb-1">
+          Confirm Password
+        </label>
+        <input 
+          type="password" 
+          {...register("confirmPassword")} 
+          className="border-2 w-3/4 sm:w-full lg:w-full border-gray-300 h-11 rounded-md px-3 text-base sm:text-sm text-black focus:outline-none focus:border-blue-700"
+        />
+
+        {/* Primary Submit Button */}
+        <button 
+          type="submit" 
+          disabled={isSubmitting} 
+          className="text-base font-semibold cursor-pointer h-11 w-full bg-blue-700 hover:bg-blue-800 text-white rounded-md mt-6 transition-colors"
+        >
+          Sign In
+        </button>
+
+        <p className="text-sm text-center mt-4 text-gray-600">
+          Already have an account{" "}
+          <a href="/sign-up" className="text-blue-700 font-medium hover:underline">
+            Sign In
+          </a>
+        </p>
+
+        <div className="relative my-6 text-center">
+          <span className="text-sm text-gray-400">or</span>
         </div>
-        <div className="w-full h-lvh flex bg-blue-50 items-center justify-center flex-col">
-          <p className="text-4xl font-bold text-black mb-5">Sign up</p>
-          <div className="w-180 h-250 flex  justify-center items-center bg-white rounded-2xl border-6 border-gray-100 shadow-lg flex-col">
-            <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col  w-full h-full items-center p-10">
-              <label className="font-inter text-4sm items-start w-full text-black">Name</label>
-              <input type="text" {...register("name")} className="border-2 border-gray-300 h-12 w-full rounded-sm pl-2 font-inter"/>
-              {errors.name && <p>{errors.name.message}</p>}
 
-              <label className="font-inter text-4sm items-start w-full mt-4 text-black">E-mail</label>
-              <input type="text"  {...register("email")} className="border-2 border-gray-300 h-12 w-full rounded-sm pl-2 font-inter"/>
-              {errors.email && <p>{errors.email.message}</p>}
-
-              <label className="font-inter text-4sm items-start w-full mt-4 text-black">Password</label>
-              <input type="password" {...register("password")} className="border-2 border-gray-300 h-12 w-full rounded-sm pl-2 font-inter"  />
-              {errors.password && <p>{errors.password.message}</p>}
-
-              <label className="font-inter text-4sm items-start w-full mt-4 text-black">Confirm Password</label>
-              <input type="password" {...register("confirmPassword")} className="border-2 border-gray-300 h-12 w-full rounded-sm pl-2 font-inter"/>
-              {errors.confirmPassword && <p>{errors.confirmPassword.message}</p>}
-
-              <button type="submit" disabled={isSubmitting} className="font-inter text-2xl cursor-pointer p-3 w-full bg-blue-700 text-white rounded-sm mt-10">Sign Up</button>
-
-              <p className="font-inter text-3sm mt-4">Already have an account? <a href="/sign-in" className="text-blue-700 hover:underline">Sign In</a></p>
-
-            <p className="mt-8">or</p>
-
-            <button className="font-inter text-2xl cursor-pointer p-3 w-full border-2 border-gray-300 text-black rounded-sm mt-4" >
-              Sign up with Google
-            </button>
-            </form>
-
-        </div>
-
-        </div>
-
-      </div>
+        {/* Google OAuth Button */}
+        <button 
+          type="button"
+          className="text-base font-medium cursor-pointer h-11 w-full border-2 border-gray-300 hover:bg-gray-50 text-black rounded-md flex items-center justify-center transition-colors"
+        >
+          Sign In with Google
+        </button>
+      </form>
 
     </div>
+  </div>
+</div>
   )
 }
 
