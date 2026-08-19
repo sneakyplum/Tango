@@ -76,7 +76,7 @@ const SignInPage = () => {
         <input 
           type="email" 
           {...register("email")} 
-          className="border-2 w-3/4 sm:w-full lg:w-full border-gray-300 h-11 rounded-md px-3 text-base sm:text-sm text-black focus:outline-none focus:border-blue-700"
+          className="border-2 w-full sm:w-full lg:w-full border-gray-300 h-11 rounded-md px-3 text-base sm:text-sm text-black focus:outline-none focus:border-blue-700"
         />
 
         {/* Password Label & Input */}
@@ -86,7 +86,7 @@ const SignInPage = () => {
         <input 
           type="password" 
           {...register("password")} 
-          className="border-2 w-3/4 sm:w-full lg:w-full border-gray-300 h-11 rounded-md px-3 text-base sm:text-sm text-black focus:outline-none focus:border-blue-700"
+          className="border-2 w-full sm:w-full lg:w-full border-gray-300 h-11 rounded-md px-3 text-base sm:text-sm text-black focus:outline-none focus:border-blue-700"
         />
 
         {/* Primary Submit Button */}

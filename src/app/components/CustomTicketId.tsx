@@ -19,14 +19,14 @@ const CustomTicketId = ({ gid, workspace, customTicketId }: CustomTicketIdProps)
         e.preventDefault();
         createAsanaCustomTicket({ gid, workspace, CustomTicketId: ticketAmount, });
       }}>
-        <div className='flex flex-row h-10 w-full'>
-          <button  className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition-colors duration-300 w-full" type="submit">
+        <div className='flex flex-row h-10'>
+          <button  className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition-colors duration-300 whitespace-nowrap" type="submit">
             Create Custom Ticket
           </button>
-          <input type="text" placeholder="Enter Custom Ticket ID" className="border p-2 rounded"  value={ticketAmount} onChange={(e) => {setTicketAmount(e.target.value)}}/>
+          <input type="text" placeholder="Enter Custom Ticket ID" className="border p-2 rounded text-white w-3/4 sm:w-full"  value={ticketAmount} onChange={(e) => {setTicketAmount(e.target.value)}}/>
 
         </div>
-        <p className="text-m text-gray-500 mt-1">Current Custom Ticket ID: <strong className='text-black'>{customTicketId}</strong></p>
+        <p className="text-m text-gray-300 mt-1">Current Custom Ticket ID: <strong className='text-white'>{customTicketId}</strong></p>
       </form>
 
     </div>
