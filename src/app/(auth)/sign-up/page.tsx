@@ -42,7 +42,7 @@ const SignUpPage = () => {
         //show loading
     },
     onSuccess: (ctx) => {
-        //redirect to the dashboard or sign in page
+        router.push("/verify-email")
     },
     onError: (ctx) => {
         // display the error message
@@ -54,7 +54,6 @@ const SignUpPage = () => {
       console.error("Sign-up error:", error);
     }
 
-  router.push("/")
 
   const emailVerification = await authClient.sendVerificationEmail({
     email: data.email, // user email address
@@ -130,7 +129,7 @@ const SignUpPage = () => {
           disabled={isSubmitting} 
           className="text-base font-semibold cursor-pointer h-11 w-full bg-blue-700 hover:bg-blue-800 text-white rounded-md mt-6 transition-colors"
         >
-          Sign In
+          Sign Up
         </button>
 
         <p className="text-sm text-center mt-4 text-gray-600">
@@ -140,17 +139,17 @@ const SignUpPage = () => {
           </a>
         </p>
 
-        <div className="relative my-6 text-center">
+        {/* <div className="relative my-6 text-center">
           <span className="text-sm text-gray-400">or</span>
-        </div>
+        </div> */}
 
         {/* Google OAuth Button */}
-        <button 
+        {/* <button 
           type="button"
           className="text-base font-medium cursor-pointer h-11 w-full border-2 border-gray-300 hover:bg-gray-50 text-black rounded-md flex items-center justify-center transition-colors"
         >
           Sign In with Google
-        </button>
+        </button> */}
       </form>
 
     </div>

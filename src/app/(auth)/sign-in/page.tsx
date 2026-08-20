@@ -105,17 +105,17 @@ const SignInPage = () => {
           </a>
         </p>
 
-        <div className="relative my-6 text-center">
+        {/* <div className="relative my-6 text-center">
           <span className="text-sm text-gray-400">or</span>
-        </div>
+        </div> */}
 
         {/* Google OAuth Button */}
-        <button 
+        {/* <button 
           type="button"
           className="text-base font-medium cursor-pointer h-11 w-full border-2 border-gray-300 hover:bg-gray-50 text-black rounded-md flex items-center justify-center transition-colors"
         >
           Sign In with Google
-        </button>
+        </button> */}
       </form>
 
     </div>
