@@ -10,6 +10,7 @@ export function proxy(request: NextRequest) {
 // export default function proxy(request: NextRequest) { ... }
  
 export const config = {
-  matcher: ['/dashboard',
+  matcher: [
+    '/dashboard',
   ],
 }
