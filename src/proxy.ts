@@ -10,6 +10,6 @@ export function proxy(request: NextRequest) {
 // export default function proxy(request: NextRequest) { ... }
  
 export const config = {
-  matcher: ['/dashboard', '/((?!_next/static|_next/image|favicon.ico|icon.svg|.*\\.(?:svg|png|jpg|jpeg|gif|webp)$).*)',
+  matcher: ['/dashboard',
   ],
 }
