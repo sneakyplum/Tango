@@ -52,75 +52,75 @@ const SignInPage = () => {
   }
 
   return (
-<div>
-  {/* Top Navigation / Brand Header */}
-  <div className="fixed top-0 left-0 w-full h-20 flex items-center justify-start pl-6 sm:pl-10 z-10">
-    <Link href="/" className="text-3xl sm:text-4xl font-bold text-blue-700">
-      Tanjey
-    </Link>
-  </div>
+    <div className="min-h-screen w-full bg-slate-950 text-white flex flex-col">
+      {/* Top Navigation / Brand Header */}
+      <div className="fixed top-0 left-0 w-full h-20 flex items-center justify-start pl-6 sm:pl-10 z-10 border-b border-slate-800 bg-slate-950/80 backdrop-blur-md">
+        <Link href="/" className="text-2xl sm:text-3xl font-bold tracking-tight text-indigo-400">
+          Tanjey
+        </Link>
+      </div>
 
-  {/* Main Centered Container */}
-  <div className="w-full min-h-screen flex items-center justify-center bg-blue-50 px-4 py-24">
-    <div className="w-full max-w-md bg-white rounded-2xl border-2 border-gray-100 shadow-lg p-6 sm:p-8 flex flex-col items-center">
-      
-      <h1 className="text-3xl font-bold text-black mb-6 text-center">
-        Sign in
-      </h1>
+      {/* Main Centered Container */}
+      <div className="w-full flex-1 flex items-center justify-center px-4 py-24">
+        <div className="w-full max-w-md bg-slate-900 rounded-2xl border border-slate-800 shadow-xl p-6 sm:p-8 flex flex-col items-center">
+          
+          <h1 className="text-3xl font-bold text-white mb-6 text-center">
+            Sign in
+          </h1>
 
-      <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col w-full">
-        {/* Email Label & Input */}
-        <label className="text-sm font-medium text-black mb-1">
-          E-mail
-        </label>
-        <input 
-          type="email" 
-          {...register("email")} 
-          className="border-2 w-full sm:w-full lg:w-full border-gray-300 h-11 rounded-md px-3 text-base sm:text-sm text-black focus:outline-none focus:border-blue-700"
-        />
+          <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col w-full">
+            {/* Email Label & Input */}
+            <label className="text-sm font-medium text-slate-300 mb-1">
+              E-mail
+            </label>
+            <input 
+              type="email" 
+              {...register("email")} 
+              className="w-full h-11 bg-slate-950 border border-slate-800 rounded-md px-3 text-base sm:text-sm text-white placeholder-slate-500 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-colors"
+            />
 
-        {/* Password Label & Input */}
-        <label className="text-sm font-medium text-black mt-4 mb-1">
-          Password
-        </label>
-        <input 
-          type="password" 
-          {...register("password")} 
-          className="border-2 w-full sm:w-full lg:w-full border-gray-300 h-11 rounded-md px-3 text-base sm:text-sm text-black focus:outline-none focus:border-blue-700"
-        />
+            {/* Password Label & Input */}
+            <label className="text-sm font-medium text-slate-300 mt-4 mb-1">
+              Password
+            </label>
+            <input 
+              type="password" 
+              {...register("password")} 
+              className="w-full h-11 bg-slate-950 border border-slate-800 rounded-md px-3 text-base sm:text-sm text-white placeholder-slate-500 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-colors"
+            />
 
-        {/* Primary Submit Button */}
-        <button 
-          type="submit" 
-          disabled={isSubmitting} 
-          className="text-base font-semibold cursor-pointer h-11 w-full bg-blue-700 hover:bg-blue-800 text-white rounded-md mt-6 transition-colors"
-        >
-          Sign In
-        </button>
+            {/* Primary Submit Button */}
+            <button 
+              type="submit" 
+              disabled={isSubmitting} 
+              className="text-base font-semibold cursor-pointer h-11 w-full bg-indigo-600 hover:bg-indigo-500 text-white rounded-md mt-6 transition-colors disabled:opacity-50"
+            >
+              Sign In
+            </button>
 
-        <p className="text-sm text-center mt-4 text-gray-600">
-          Don't have an account?{" "}
-          <a href="/sign-up" className="text-blue-700 font-medium hover:underline">
-            Sign Up
-          </a>
-        </p>
+            <p className="text-sm text-center mt-4 text-slate-400">
+              Don't have an account?{" "}
+              <Link href="/sign-up" className="text-indigo-400 font-medium hover:underline">
+                Sign Up
+              </Link>
+            </p>
 
-        {/* <div className="relative my-6 text-center">
-          <span className="text-sm text-gray-400">or</span>
-        </div> */}
+            {/* <div className="relative my-6 text-center">
+              <span className="text-sm text-slate-500">or</span>
+            </div> */}
 
-        {/* Google OAuth Button */}
-        {/* <button 
-          type="button"
-          className="text-base font-medium cursor-pointer h-11 w-full border-2 border-gray-300 hover:bg-gray-50 text-black rounded-md flex items-center justify-center transition-colors"
-        >
-          Sign In with Google
-        </button> */}
-      </form>
+            {/* Google OAuth Button */}
+            {/* <button 
+              type="button"
+              className="text-base font-medium cursor-pointer h-11 w-full border border-slate-800 bg-slate-950 hover:bg-slate-800 text-white rounded-md flex items-center justify-center transition-colors"
+            >
+              Sign In with Google
+            </button> */}
+          </form>
 
+        </div>
+      </div>
     </div>
-  </div>
-</div>
   )
 }
 
