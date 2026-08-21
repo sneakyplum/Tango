@@ -29,13 +29,14 @@ const SignInPage = () => {
     email: data.email, // user email address
     password: data.password, // user password -> min 8 characters by default
  // user display name // User image URL (optional)
-    callbackURL: "/" // A URL to redirect to after the user verifies their email (optional)
+    callbackURL: '/dashboard',
 }, {
     onRequest: (ctx) => {
         //show loading
     },
-    onSuccess: (ctx) => {
-        //redirect to the dashboard or sign in page
+    onSuccess: () => {
+      router.push("/dashboard");
+      router.refresh();
     },
     onError: (ctx) => {
         // display the error message
@@ -46,8 +47,6 @@ const SignInPage = () => {
   if (error) {
       console.error("Sign-in error:", error);
     }
-
-  router.push("/")
 
   }
 

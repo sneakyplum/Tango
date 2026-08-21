@@ -41,7 +41,8 @@ export default async function DashboardPage() {
   // 2. If no connected account (or token revoked), render the empty state immediately
   if (!asanaAccount) {
     return (
-      <div className="flex min-h-[80vh] w-full items-center justify-center p-4">
+      <div className="min-h-screen w-full bg-slate-950 text-white flex items-center justify-center px-4 py-16">
+        
         <ConnectAsanaCard />
       </div>
     );
