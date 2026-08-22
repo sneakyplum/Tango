@@ -15,7 +15,9 @@ const PricingCards: React.FC<PricingCardsProps> = ({
   const router = useRouter()
   
   // PASTE YOUR ACTUAL STRIPE TEST PRICE ID HERE
-  const LIVE_STRIPE_PRICE_ID = "price_1TmoNj5rLJX5AeyxxCEHMuih" 
+  // const LIVE_STRIPE_PRICE_ID = "price_1TmoNj5rLJX5AeyxxCEHMuih" 
+
+  const LIVE_STRIPE_PRICE_ID = "price_1U76Pz74GQVRIGFQrN2jk9FG" 
 
   const handleSubscribe = async () => {
     if (isSubscribed) {
