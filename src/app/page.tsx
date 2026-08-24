@@ -3,6 +3,7 @@
 import Link from "next/link";
 import AsanaOauth from "./components/AsanaOauth";
 import HomePageLinks from "./components/HomePageLinks";
+import Image from "next/image";
 
 export default function Home() {
 
@@ -42,6 +43,19 @@ export default function Home() {
           <Link href="/sign-up" className="inline-flex h-12 items-center justify-center rounded-xl bg-indigo-600 px-8 text-base font-semibold text-white shadow-lg hover:bg-indigo-500 transition-colors">
             Start Free Today
           </Link>
+        </div>
+        <div className="w-full h-full justify-center items-center">
+          {/* <Image
+            src="/images/full-dashboard.png"
+            alt="Tanjey Dashboard Preview"
+            width={1200}
+            height={675}
+            unoptimized
+            loading="eager"
+            className="w-full h-auto rounded-xl object-cover border-2 border-indigo-800"
+
+          /> */}
+          <img src="/images/full-dashboard.png" width={1200} alt="Dog" className="border-2 border-indigo-800 rounded-2xl"/>
         </div>
       </main>
 
