@@ -28,6 +28,10 @@ export default function Home() {
 
       {/* 2. Hero Section */}
       <main className="flex-1 flex flex-col items-center justify-center text-center px-4 pt-16 pb-12 max-w-4xl mx-auto space-y-6">
+
+        <p className="text-2xl">
+          (  Pronounced Tan-G  )
+        </p>
         <span className="text-xs font-semibold uppercase tracking-wider text-indigo-400 bg-indigo-950/60 border border-indigo-800 px-3 py-1 rounded-full">
           Asana Power Tools
         </span>
