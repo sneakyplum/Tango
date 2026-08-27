@@ -8,10 +8,13 @@ import { revalidatePath } from 'next/cache';
 import { headers } from 'next/headers';
 import { redirect } from 'next/navigation';
 import { NextResponse } from 'next/server';
+import { Resend } from 'resend';
 
 import Stripe from 'stripe';
 
 // Test mode key; don't put live keys in code. See https://docs.stripe.com/keys-best-practices.
+
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 
 export const createStripeProduct = async () => {
@@ -250,3 +253,25 @@ export const createAsanaCustomTicket = async ({
   const data = await response.json();
   return data.data; 
 };
+
+
+export async function sendFeedback(formData: FormData) {
+  const message = formData.get("message") as string;
+  const userEmail = formData.get("email") as string; // Optional user email
+
+  if (!message) return { error: "Message is required" };
+
+  try {
+    await resend.emails.send({
+      from: "Tanjey Feedback <feedback@tanjey.com>", // Uses your verified domain
+      to: process.env.RESEND_SEND_TO_EMAIL!, // Delivered straight to your Gmail
+      subject: `[Tanjey Feedback] New Submission`,
+      replyTo: userEmail || undefined, // Allows you to hit reply in Gmail directly to the user!
+      text: `User Feedback:\n\n${message}\n\nSubmitted by: ${userEmail || "Anonymous"}`,
+    });
+
+    return { success: true };
+  } catch (error) {
+    return { error: "Failed to send feedback." };
+  }
+}

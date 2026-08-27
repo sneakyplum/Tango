@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import FeedbackBox from "./components/FeedBackBox";
 // import FeedbackBox from "./components/FeedbackBox"; // Import your feedback component
 
 export default function Home() {
@@ -134,9 +135,9 @@ export default function Home() {
       </section>
 
       {/* 4. Feedback Section */}
-      {/* <section className="w-full max-w-4xl mx-auto px-4 py-8 border-t border-slate-900">
+      <section className="w-full max-w-4xl mx-auto px-4 py-16 border-t border-slate-900">
         <FeedbackBox />
-      </section> */}
+      </section>
 
       {/* 5. Footer */}
       <footer className="w-full py-8 text-center text-xs text-slate-500 border-t border-slate-900 flex flex-col sm:flex-row items-center justify-between max-w-6xl mx-auto px-4 gap-4">
