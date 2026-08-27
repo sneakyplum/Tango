@@ -139,8 +139,16 @@ export default function Home() {
       </section> */}
 
       {/* 5. Footer */}
-      <footer className="w-full py-8 text-center text-xs text-slate-600 border-t border-slate-900">
-        © {new Date().getFullYear()} Tanjey. All rights reserved.
+      <footer className="w-full py-8 text-center text-xs text-slate-500 border-t border-slate-900 flex flex-col sm:flex-row items-center justify-between max-w-6xl mx-auto px-4 gap-4">
+        <div>© {new Date().getFullYear()} Tanjey. All rights reserved.</div>
+        <div className="flex items-center gap-6">
+          <Link href="/privacy" className="hover:text-slate-300 transition-colors">
+            Privacy Policy
+          </Link>
+          <Link href="/terms" className="hover:text-slate-300 transition-colors">
+            Terms of Service
+          </Link>
+        </div>
       </footer>
     </div>
   );
