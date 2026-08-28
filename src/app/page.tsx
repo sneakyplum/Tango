@@ -73,7 +73,7 @@ export default function Home() {
               Precision Tracking
             </span>
             <h2 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">
-              Watch tasks count down live in real time
+              Bring visual urgency to your board views with dynamic deadline indicators
             </h2>
             <p className="text-slate-400 text-sm sm:text-base leading-relaxed">
               Stop guessing when work is actually due or relying on static calendar dates. Tanjey transforms standard Asana due dates into active countdown timers so your team knows exactly how much time is left.
